@@ -1,6 +1,6 @@
 <div align="center">
 
-# 💪 Modelos de Ejercicios de Fit NIc
+# Modelos de Ejercicios de Fit NIc
 
 <p>
   <img src="videos/0025-EIeI8Vf.gif" width="120" alt="press de banca con barra" />
@@ -27,7 +27,7 @@
 
 ---
 
-## 📦 Fuente de Datos
+##  Fuente de Datos
 
 **Fit NIc usa este repositorio para:**
 
@@ -106,7 +106,7 @@ Guia paso a paso para integrar estos modelos en Fit NIc o en un backend relacion
 
 ---
 
-## 📂 Estructura de Archivos
+##  Estructura de Archivos
 
 ```text
 Models_3D/
@@ -175,7 +175,7 @@ Models_3D/
 
 ---
 
-## 🗂️ Esquema de Datos
+##  Esquema de Datos
 
 Cada registro de `data/exercises.json` sigue esta estructura. Tambien se incluye un [JSON Schema](data/exercises.schema.json) para validacion automatica.
 
