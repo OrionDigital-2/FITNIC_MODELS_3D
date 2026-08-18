@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:heyner-centeno:fit-nic:exercise-models.schema.json",
+  "title": "Modelos de Ejercicios de Fit NIc",
+  "description": "Esquema para data/exercises.json de Fit NIc: un arreglo de registros de ejercicios con instrucciones multilingues y referencias de medios.",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/exercise"
+  },
+  "$defs": {
+    "languageMap": {
+      "type": "object",
+      "description": "Texto de instrucciones indexado por codigo de idioma ISO 639-1.",
+      "properties": {
+        "en": {
+          "type": "string"
+        },
+        "es": {
+          "type": "string"
+        },
+        "it": {
+          "type": "string"
+        },
+        "tr": {
+          "type": "string"
+        },
+        "ru": {
+          "type": "string"
+        },
+        "zh": {
+          "type": "string"
+        },
+        "hi": {
+          "type": "string"
+        },
+        "pl": {
+          "type": "string"
+        },
+        "ko": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "en",
+        "es",
+        "it",
+        "tr",
+        "ru",
+        "zh",
+        "hi",
+        "pl",
+        "ko",
+        "fr"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "languageStepsMap": {
+      "type": "object",
+      "description": "Instrucciones paso a paso como arreglo de textos, indexadas por codigo de idioma ISO 639-1.",
+      "properties": {
+        "en": {
+          "$ref": "#/$defs/steps"
+        },
+        "es": {
+          "$ref": "#/$defs/steps"
+        },
+        "it": {
+          "$ref": "#/$defs/steps"
+        },
+        "tr": {
+          "$ref": "#/$defs/steps"
+        },
+        "ru": {
+          "$ref": "#/$defs/steps"
+        },
+        "zh": {
+          "$ref": "#/$defs/steps"
+        },
+        "hi": {
+          "$ref": "#/$defs/steps"
+        },
+        "pl": {
+          "$ref": "#/$defs/steps"
+        },
+        "ko": {
+          "$ref": "#/$defs/steps"
+        },
+        "fr": {
+          "$ref": "#/$defs/steps"
+        }
+      },
+      "required": [
+        "en",
+        "es",
+        "it",
+        "tr",
+        "ru",
+        "zh",
+        "hi",
+        "pl",
+        "ko",
+        "fr"
+      ],
+      "additionalProperties": {
+        "$ref": "#/$defs/steps"
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identificador numerico unico, rellenado con ceros hasta 4 digitos (por ejemplo, \"0001\").",
+          "pattern": "^[0-9]{4}$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Nombre completo del ejercicio (por ejemplo, \"3/4 sit-up\").",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "description": "Categoria de parte del cuerpo. Refleja body_part.",
+          "minLength": 1
+        },
+        "body_part": {
+          "type": "string",
+          "description": "Parte del cuerpo trabajada.",
+          "enum": [
+            "back",
+            "cardio",
+            "chest",
+            "lower arms",
+            "lower legs",
+            "neck",
+            "shoulders",
+            "upper arms",
+            "upper legs",
+            "waist"
+          ]
+        },
+        "equipment": {
+          "type": "string",
+          "description": "Equipo requerido (por ejemplo, \"dumbbell\" o \"body weight\").",
+          "minLength": 1
+        },
+        "instructions": {
+          "$ref": "#/$defs/languageMap",
+          "description": "Instrucciones completas paso a paso como texto unico por idioma."
+        },
+        "instruction_steps": {
+          "$ref": "#/$defs/languageStepsMap",
+          "description": "Las mismas instrucciones separadas en un arreglo ordenado de pasos por idioma."
+        },
+        "muscle_group": {
+          "type": "string",
+          "description": "Grupo muscular sinergista principal.",
+          "minLength": 1
+        },
+        "secondary_muscles": {
+          "type": "array",
+          "description": "Musculos adicionales involucrados.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "target": {
+          "type": "string",
+          "description": "Musculo objetivo principal (por ejemplo, \"biceps\" o \"abs\").",
+          "minLength": 1
+        },
+        "media_id": {
+          "type": "string",
+          "description": "ID original de referencia del medio (por ejemplo, \"2gPfomN\").",
+          "minLength": 1
+        },
+        "image": {
+          "type": "string",
+          "description": "Ruta a la miniatura 180x180 (por ejemplo, \"images/0001-2gPfomN.jpg\").",
+          "pattern": "^images/.+\\.(jpg|jpeg|png)$"
+        },
+        "gif_url": {
+          "type": "string",
+          "description": "Ruta al GIF animado 180x180 (por ejemplo, \"videos/0001-2gPfomN.gif\").",
+          "pattern": "^videos/.+\\.gif$"
+        },
+        "attribution": {
+          "type": "string",
+          "description": "Aviso de autoria del paquete.",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Fecha y hora de creacion del registro en formato ISO 8601.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "category",
+        "body_part",
+        "equipment",
+        "instructions",
+        "instruction_steps",
+        "muscle_group",
+        "secondary_muscles",
+        "target",
+        "media_id",
+        "image",
+        "gif_url",
+        "attribution",
+        "created_at"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
