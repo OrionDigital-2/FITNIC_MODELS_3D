@@ -54,7 +54,7 @@
 
 ---
 
-## 🔍 Resumen
+## Resumen
 
 Este conjunto de datos es mantenido por **Heyner Centeno** para **Fit NIc** como una coleccion curada de **1,324 ejercicios de fitness**. Cubre distintos grupos musculares, tipos de equipo y categorias de ejercicios.
 
@@ -81,7 +81,7 @@ Cada ejercicio contiene:
 
 ---
 
-## 🖥️ Visor Interactivo y Configuracion
+##  Visor Interactivo y Configuracion
 
 Este repositorio incluye dos herramientas HTML listas para usar. No requieren servidor; se pueden abrir directamente en el navegador.
 
@@ -132,7 +132,7 @@ Models_3D/
 
 ---
 
-## 📊 Estadisticas
+## Estadisticas
 
 | Metrica | Cantidad |
 |---|---|
@@ -233,7 +233,7 @@ Cada registro de `data/exercises.json` sigue esta estructura. Tambien se incluye
 
 ---
 
-## 🎬 Ejercicios de Ejemplo
+## Ejercicios de Ejemplo
 
 > Cada ejemplo incluye miniatura 180x180 (`image`) y GIF animado (`gif_url`) para Fit NIc.
 
@@ -299,7 +299,7 @@ La elevacion lateral aisla el deltoides medio y ayuda a construir amplitud en lo
 
 ---
 
-## 🚀 Ejemplos de Uso
+##  Ejemplos de Uso
 
 ### Python — Cargar y Filtrar
 
@@ -411,7 +411,7 @@ console.log("Primeros 6 ejercicios:", primerosEjercicios.map(e => e.name));
 
 ---
 
-## 📄 Licencia y Uso
+## Licencia y Uso
 
 Este repositorio es el **paquete de modelos/datos de ejercicios de Fit NIc**: metadatos de ejercicios, instrucciones multilingues y medios 180x180.
 
